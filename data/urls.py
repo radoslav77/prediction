@@ -5,5 +5,6 @@ from . import views
 # input views 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('month/<str:month>', views.months, name='months'),
 
 ]

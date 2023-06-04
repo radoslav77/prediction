@@ -14,12 +14,48 @@ with open("./draw.csv", 'r') as file:
         data.save()
     
 """
+jan = []
+feb = []
+mar = []
+may = []
+jun = []
+jul = []
+aug = []
+sep = []
+oct = []
+nov = []
+dec = []
 
+data1 = DATA.objects.all()
 # Create your views here.
 def index(request):
     data1 = DATA.objects.all()
-    print(data1)
+    #print(data1)
     
+    monts =[]
 
+    for i in data1:
+        
+       
+        for m in i.date_of_drow.split('-'):
+            if m == 'Jan':
+                jan.append(i)
+            elif m == 'Feb':
+                feb.append(i)
+            elif m == 'Mar':
+                mar.append(i)    
+            #print (m)
+        
+            print(m)    
+    return render(request, 'data/index.html', {'data':data1,
+                                               'month':m})
 
-    return render(request, 'data/index.html', {'data':data1})
+def months(month):
+    monthData = []
+    for i in data1:
+        
+        for m in i.date_of_drow.split('-'):
+            if m == month:
+                monthData.append(i)
+    print(monthData)
+    pass
