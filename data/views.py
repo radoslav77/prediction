@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http.response import HttpResponse
+import json
 import csv
 from .models import *
 """
@@ -46,16 +48,52 @@ def index(request):
                 mar.append(i)    
             #print (m)
         
-            print(m)    
+            #print(m)    
     return render(request, 'data/index.html', {'data':data1,
                                                'month':m})
 
-def months(month):
+def months(request, month):
     monthData = []
     for i in data1:
         
         for m in i.date_of_drow.split('-'):
             if m == month:
                 monthData.append(i)
-    print(monthData)
+    #print(monthData)
+    
+    #return HttpResponse(json.dumps(dish_data), content_type="application/json")
+
     pass
+
+def month(request):
+    month_data =[]
+    for i in data1:
+            for m in i.date_of_drow.split('-'):
+                if m == 'Jan':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Feb':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Mar':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Apr':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'May':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Jun':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Jul':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Aug':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Sep':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Oct':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Nov':
+                    month_data.append({'month':m,'data':i})
+                elif m == 'Dec':
+                    month_data.append({'month':m,'data':i})
+    print(month_data)
+    return HttpResponse(json.dumps(month_data), content_type="application/json")
+
+

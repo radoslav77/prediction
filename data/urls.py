@@ -7,4 +7,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('month/<str:month>', views.months, name='months'),
 
+    #API
+    path('jsMonth', views.month, name='month'),
+
 ]
