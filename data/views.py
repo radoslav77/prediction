@@ -70,29 +70,41 @@ def month(request):
     for i in data1:
             for m in i.date_of_drow.split('-'):
                 if m == 'Jan':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Feb':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Mar':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Apr':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'May':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Jun':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Jul':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Aug':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Sep':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Oct':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Nov':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
                 elif m == 'Dec':
-                    month_data.append({'month':m,'data':i})
+                    month_data.append({'month':m,'data1':i.ball1,
+                                       'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
     print(month_data)
     return HttpResponse(json.dumps(month_data), content_type="application/json")
 
