@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 import json
 import csv
@@ -53,17 +53,13 @@ def index(request):
                                                'month':m})
 
 def months(request, month):
-    monthData = []
-    for i in data1:
-        
-        for m in i.date_of_drow.split('-'):
-            if m == month:
-                monthData.append(i)
-    #print(monthData)
+
+    print(month)
     
+    return redirect('index')
     #return HttpResponse(json.dumps(dish_data), content_type="application/json")
 
-    pass
+    
 
 def month(request):
     month_data =[]
@@ -105,7 +101,7 @@ def month(request):
                 elif m == 'Dec':
                     month_data.append({'month':m,'data1':i.ball1,
                                        'date2':i.ball2,'data3':i.ball3,'data4':i.ball5,'luckey1':i.lucky1,'luckey2':i.lucky2})
-    print(month_data)
+    #print(month_data)
     return HttpResponse(json.dumps(month_data), content_type="application/json")
 
 
