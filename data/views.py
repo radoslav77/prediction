@@ -28,6 +28,8 @@ oct = []
 nov = []
 dec = []
 
+Month = []
+
 data1 = DATA.objects.all()
 # Create your views here.
 def index(request):
@@ -41,16 +43,37 @@ def index(request):
        
         for m in i.date_of_drow.split('-'):
             if m == 'Jan':
-                jan.append(i)
+                Month.append({'Month':m,'data': i})
             elif m == 'Feb':
-                feb.append(i)
+                Month.append({'Month':m,'data': i})
             elif m == 'Mar':
-                mar.append(i)    
+                Month.append({'Month':m,'data': i})
+            elif m == 'Apr':
+                Month.append({'Month':m,'data': i})
+            elif m == 'May':
+                Month.append({'Month':m,'data': i})
+            elif m == 'Jun':
+                Month.append({'Month':m,'data': i})
+            elif m == 'Jul':
+                Month.append({'Month':m,'data': i})
+            elif m == 'Aug':
+                Month.append({'Month':m,'data': i})
+            elif m == 'Sep':
+                Month.append({'Month':m,'data': i})
+            elif m == 'Oct':
+                Month.append({'Month':m,'data': i})
+            elif m == 'Nov':
+                Month.append({'Month':m,'data': i})
+            elif m == 'Dec':
+                Month.append({'Month':m,'data': i}) 
             #print (m)
         
-            #print(m)    
+    for key, value in Month.items():
+
+    
+        print(Month[value])    
     return render(request, 'data/index.html', {'data':data1,
-                                               'month':m})
+                                               'month':m, 'dic':Month})
 
 def months(request, month):
 

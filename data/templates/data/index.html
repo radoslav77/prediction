@@ -14,6 +14,12 @@
     {% endfor %}
 
     </ul>
+    {% for key, value in dic %}
+    
+    {{key}} 
+
+    
+    {% endfor %}
 <script>
     const GetMonth = ('/jsMonth')
     //console.log(GetMonth)
@@ -45,14 +51,22 @@
             })
             
         });
-        let Nm = 
+        
         NewNm.push([... new Set(NewMonth)])
-       console.log(NewNm[0])
+        let Nm = Array.from(NewNm[0])
+       console.log(Nm.length)
 
       
         Array.from(UlLeLink).forEach(item => {
-
-            //item.href = 'months'+ '/' + String(mon)
+            data.forEach(e => {
+                Nm.forEach(el => {
+                    if (el === e.month){
+                        //console.log(e.month)
+                        item.href = 'months'+ '/' + String(el)
+                    }
+                })
+            })
+            
         })
         
        
