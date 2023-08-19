@@ -28,14 +28,16 @@ oct = []
 nov = []
 dec = []
 
-Month = []
 
+month_data =[]
 data1 = DATA.objects.all()
+
+
 # Create your views here.
 def index(request):
     data1 = DATA.objects.all()
     #print(data1)
-    
+    Month = []
     monts =[]
 
     for i in data1:
@@ -43,49 +45,59 @@ def index(request):
        
         for m in i.date_of_drow.split('-'):
             if m == 'Jan':
-                Month.append({'Month':m,'data': i})
+                Month.append(m)
             elif m == 'Feb':
-                Month.append({'Month':m,'data': i})
+                Month.append(m)
             elif m == 'Mar':
-                Month.append({'Month':m,'data': i})
+               Month.append(m)
             elif m == 'Apr':
-                Month.append({'Month':m,'data': i})
+                Month.append(m)
             elif m == 'May':
-                Month.append({'Month':m,'data': i})
+               Month.append(m)
             elif m == 'Jun':
-                Month.append({'Month':m,'data': i})
+               Month.append(m)
             elif m == 'Jul':
-                Month.append({'Month':m,'data': i})
+               Month.append(m)
             elif m == 'Aug':
-                Month.append({'Month':m,'data': i})
+               Month.append(m)
             elif m == 'Sep':
-                Month.append({'Month':m,'data': i})
+                Month.append(m)
             elif m == 'Oct':
-                Month.append({'Month':m,'data': i})
+                Month.append(m)
             elif m == 'Nov':
-                Month.append({'Month':m,'data': i})
+                Month.append(m)
             elif m == 'Dec':
-                Month.append({'Month':m,'data': i}) 
+                Month.append(m)
             #print (m)
         
-    for key, value in Month.items():
+    #for key, value in Month:
 
+    #print(set(Month))    
     
-        print(Month[value])    
     return render(request, 'data/index.html', {'data':data1,
-                                               'month':m, 'dic':Month})
+                                               'month':m, 'dic':set(Month)})
 
 def months(request, month):
 
-    print(month)
+   print(month)
     
-    return redirect('index')
+   return redirect('index')
     #return HttpResponse(json.dumps(dish_data), content_type="application/json")
 
-    
+
+# need to work more on this 
+def pyMonth(requet):
+    #print(month_data)
+    m = set()
+    for key, value in month_data:
+       print(key)
+      # m.add(d)
+
+    return render(requet, 'data/month.html', { 'data':m })
+ 
 
 def month(request):
-    month_data =[]
+   
     for i in data1:
             for m in i.date_of_drow.split('-'):
                 if m == 'Jan':

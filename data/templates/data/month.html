@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    HEHEH
+    <ul id="ul">
+    {% for d in data %}
+
+      <a href=""  class="links"><li>{{d}}</li></a>
+
+    {% endfor %}
+
+    </ul>
+
+<script>
+    const GetMonth = ('/jsMonth')
+    //console.log(GetMonth)
+    GetMonthData(GetMonth)
+    const UlEl = document.getElementById('ul')
+    const UlLeLink = document.getElementsByClassName('links')
+     
+    let NewMonth = []
+    let NewNm = []
+
+    async function GetMonthData(url) {
+    const res = await fetch(url)
+    const data = await res.json()
+
+        
+       
+    }
+    
+
+    
+    
+
+            //
+
+      
+        
+
+    
+    
+
+
+</script>
+</body>
+</html>

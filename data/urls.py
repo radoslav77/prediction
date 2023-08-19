@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('months/<str:month>', views.months, name='months'),
+    path('month', views.pyMonth, name='pyMonth'),
 
     #API
     path('jsMonth', views.month, name='month'),
