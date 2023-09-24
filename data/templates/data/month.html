@@ -7,7 +7,8 @@
 </head>
 <body>
 
-    HEHEH
+    <h2>{{month}}</h2>
+    <h4><a href="{% url 'index' %}">Back to Index</a></h4>
     <ul id="ul">
     {% for d in data %}
 
@@ -16,7 +17,18 @@
     {% endfor %}
 
     </ul>
-
+    <form action="{% url 'months' month %}" method="post">
+        {% csrf_token %}
+        <input type="number" name="InputNumber" id="">
+        <button type="submit">submit</button>
+    </form>
+    <ul>
+        {% for i in data %}
+        {{i.ball1}}
+        
+        {% endfor %}
+    </ul>
+    {{count}}
 <script>
     const GetMonth = ('/jsMonth')
     //console.log(GetMonth)

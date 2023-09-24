@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 import json
+import pandas as pd
 import csv
+from collections import Counter
 from .models import *
 """
 with open("./draw.csv", 'r') as file:
@@ -78,10 +80,45 @@ def index(request):
                                                'month':m, 'dic':set(Month)})
 
 def months(request, month):
+    cont = 0
+    br_cont = 0
+    occurance = []
+    data_month = []
 
-   print(month)
-    
-   return redirect('index')
+    input_number = request.POST.get('InputNumber')
+    for i in data1:
+        br_cont += 1
+
+        for m in i.date_of_drow.split('-'):
+            if m == month:  
+               data_month.append(i)
+               occurance.append(i.ball1)
+               for n in  occurance:
+                   if n in occurance:
+                       cont += 1
+                   
+                #print(i)
+            
+    values = Counter(occurance)
+    num = values[input_number]
+    #data_month.sort_values('date_of_drow', inplace=True)
+    #data_month.drop_duplicates(subset='date_of_drow', keep=False, inplace=True)
+    #data = list(dict.fromkeys(data_month))
+
+    new_cont = 0
+    new_data = []
+    for new in data_month:
+        new_cont += 1
+        if new not in new_data:
+          
+            new_data.append(new)
+
+    remove = new_cont - 2 
+
+    print(new_data[:-remove])
+
+    return render(request, 'data/month.html', { 'data': data_month, 'month':month, 'count':num} )
+     #return redirect('index')
     #return HttpResponse(json.dumps(dish_data), content_type="application/json")
 
 
